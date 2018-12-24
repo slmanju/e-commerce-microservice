@@ -13,18 +13,23 @@ import org.springframework.stereotype.Service;
 import com.slmanju.ecommerce.productapi.model.Product;
 import com.slmanju.ecommerce.productapi.repository.ProductRepository;
 
+import feign.FeignException;
+
 @Service
 public class ProductServiceImpl implements ProductService {
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(ProductServiceImpl.class);
 
 	private final ProductRepository productRepository;
+	private final CategoryServiceProxy categoryServiceProxy;
 	
-	public ProductServiceImpl(ProductRepository productRepository) {
+	public ProductServiceImpl(ProductRepository productRepository, CategoryServiceProxy categoryServiceProxy) {
 		this.productRepository = productRepository;
+		this.categoryServiceProxy = categoryServiceProxy;
 	}
 
 	public Product save(Product product) {
+		validateCategory(product.getCategoryId());
 		return productRepository.save(product);
 	}
 
@@ -43,6 +48,15 @@ public class ProductServiceImpl implements ProductService {
 
 	public void delete(long id) {
 		productRepository.deleteById(id);
+	}
+	
+	public void validateCategory(Long id) {
+		try {
+			CategoryResponse category = categoryServiceProxy.getCategory(id);
+			System.out.println("-------------> " + category.getCategoryName());
+		} catch(FeignException exception) {
+			
+		}
 	}
 
 }

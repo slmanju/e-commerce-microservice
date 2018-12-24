@@ -1,0 +1,107 @@
+{
+	"variables": [],
+	"info": {
+		"name": "e-commerce-microservice",
+		"_postman_id": "8c9e0f85-53fa-0aef-595d-91bc8615bc5f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "product-api",
+			"description": "",
+			"item": [
+				{
+					"name": "products - select all",
+					"request": {
+						"url": "localhost:8090/products",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "products - get by id",
+					"request": {
+						"url": "localhost:8090/products/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "products - save product",
+					"request": {
+						"url": "localhost:8090/products",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"categoryId\": 1,\n\t\"productName\": \"Shirt\",\n\t\"productCode\": \"SHIRT\",\n\t\"shortDescription\": \"a shirt\",\n\t\"longDescription\": \"a beautiful shirt\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category-api",
+			"description": "",
+			"item": [
+				{
+					"name": "categories - get all",
+					"request": {
+						"url": "localhost:8070/categories",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "categories - get by id",
+					"request": {
+						"url": "localhost:8070/categories/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "categories - save category",
+					"request": {
+						"url": "localhost:8070/categories",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"categoryName\": \"Shirts\",\n\t\"categoryDescription\": \"wow shirts\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

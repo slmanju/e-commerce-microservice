@@ -19,9 +19,7 @@ public class Category {
 	@Column(name = "CATEGORY_DESCRIPTION", nullable = false)
 	private String categoryDescription;
 
-
 	public Category(Long id, String categoryName, String categoryDescription) {
-		super();
 		this.id = id;
 		this.categoryName = categoryName;
 		this.categoryDescription = categoryDescription;
