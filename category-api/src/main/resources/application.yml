@@ -27,3 +27,10 @@ spring:
       settings:
         trace: false
         web-allow-others: false 
+        
+eureka:
+  client:
+    serviceUrl: 
+      defaultZone: http://localhost:8110/eureka/
+      
+spring.main.allow-bean-definition-overriding: true
