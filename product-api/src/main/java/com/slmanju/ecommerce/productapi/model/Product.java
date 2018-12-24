@@ -12,6 +12,9 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "CATEGORY_ID")
+	private Long categoryId;
 
 	@Column(name = "CODE", nullable = false)
 	private String productCode;
@@ -31,6 +34,14 @@ public class Product {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public String getProductCode() {
