@@ -4,7 +4,7 @@ server:
 # Database Settings
 spring:
   datasource:
-    url: jdbc:h2:mem:e-commerce;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:e-commerce-product;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     platform: h2
     username: sa
     password:
@@ -26,4 +26,11 @@ spring:
       path: /console
       settings:
         trace: false
-        web-allow-others: false 
+        web-allow-others: false
+ 
+eureka:
+  client:
+    serviceUrl: 
+      defaultZone: http://localhost:8110/eureka/
+      
+spring.main.allow-bean-definition-overriding: true
