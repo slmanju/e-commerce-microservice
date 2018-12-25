@@ -27,6 +27,11 @@ public class CategoryController {
 	public CategoryController(CategoryService categoryService) {
 		this.categoryService = categoryService;
 	}
+	
+	@GetMapping("/echo")
+	public ResponseEntity<String> echo() {
+		return ResponseEntity.ok().body("Hello from category");
+	}
 
 	@PostMapping("")
 	public ResponseEntity<?> createCategory(@RequestBody Category category) {
