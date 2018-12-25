@@ -29,5 +29,6 @@
   	<module>product-api</module>
   	<module>category-api</module>
   	<module>master-service-discovery</module>
+  	<module>master-api-gateway</module>
   </modules>
 </project>
